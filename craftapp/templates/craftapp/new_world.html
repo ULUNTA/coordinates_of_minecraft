@@ -1,0 +1,12 @@
+{% extends 'craftapp/base.html' %}
+
+{% block content %}
+<br><br>
+
+
+  <form action="{% url 'craftapp:new_world' %}" method="POST">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-info">保存</button>
+  </form>
+
+  {% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'craftapp/base.html' %}
+
+{% block content %}
+  <body>
+    {% if form.errors  %}
+    <p>ユーザーID, パスワードが一致しません．</p>
+    {% endif %}
+    <form method="POST" action="{% url 'craftapp:account_login' %}">
+      {% csrf_token %}
+      <label>ユーザーID</label>
+      {{ form.username }}
+      {{ form.username.errors }}
+      <label>パスワード</label>
+      {{ form.password }}
+      {{ form.password.errors }}
+      <br>
+      <button type="submit" class="btn btn-primary">ログイン</button>
+    </form>
+  </body>
+  {% endblock %}
+</html>

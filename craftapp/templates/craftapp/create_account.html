@@ -1,0 +1,22 @@
+{% extends 'craftapp/base.html' %}
+
+{% block content %}
+    <body>
+        <form method="POST" action="{% url 'craftapp:create_account' %}">
+            {%csrf_token %}
+            <label>ユーザーID</label>
+            
+            {{ form.username }}
+            <!--このフィールドは必須ですというコメントを出している。必須項目にしている？-->
+            {{ form.username.errors }}
+            <label> パスワード</label>
+            {{ form.password1 }}
+            {{ form.password1.errors }}
+            <label> パスワード（確認）</label>
+            {{ form.password2 }}
+            {{ form.password2.errors }}
+            <button type="button" class="btn btn-success">登録</button>
+        </form>
+    </body>
+    {% endblock %}
+</html>

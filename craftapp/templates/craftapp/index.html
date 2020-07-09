@@ -1,0 +1,47 @@
+{% extends 'craftapp/base.html' %}
+
+{% block content %}
+<br>
+
+<div class="jumbotron">
+  <h3>ようこそ。Minecraft 座標メモサイトへ！</h3>
+  <p class="lead">当サイトをご覧いただきありがとうございます。本サイトはDjango学習用のテストサイトです。<br>
+    使い方はいたってシンプルです。<br>１）SignからIDとパスワード設定する。<br>２）座標情報を入力する。<br>以上！
+    <br>一度ログアウトして、もう一度利用する際はloginボタンからログインしてください。
+  </p>
+</div>
+<br>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">No,</th>
+        <th scope="col">場所の名前</th>
+        <th scope="col">プレーヤー</th>
+        <th scope="col">X座標</th>
+        <th scope="col">Y座標</th>
+        <th scope="col">Z座標</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for coordinate in coordinates %}
+      <tr>
+        <th scope="row">{{ coordinate.id }}</th>
+        <td><a href="{% url 'craftapp:coordinate_detail' coordinate.id %}" class="coordinate-place">{{ coordinate.place }}</a></td>
+        <td>{{ coordinate.player }}</td>
+        <td>{{ coordinate.x_coordinate }}</td>
+        <td>{{ coordinate.y_coordinate }}</td>
+        <td>{{ coordinate.z_coordinate }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="jumbotron">
+    <p class="lead">
+      【注意事項】あくまでも練習用のサイトです。他の人が作ったメモを編集出来ますし、削除もできますがそのような行為はご遠慮ください。
+      また、使用目的以外の書き込みや内容の登録もご遠慮ください。このサイトは予告なく編集、変更される可能性があります。
+    </p>
+  </div>
+
+{% endblock %}
+

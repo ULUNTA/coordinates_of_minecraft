@@ -1,0 +1,20 @@
+{% extends 'craftapp/base.html' %}
+
+{% block content %}
+<br><br>
+  <h2>場所：{{ coordinate.place }}</h2>
+  <div>
+    <p>X座標：{{ coordinate.x_coordinate }}</p>
+    <p>Y座標：{{ coordinate.y_coordinate }}</p>
+    <p>Z座標：{{ coordinate.z_coordinate }}</p>
+    <p>プレーヤー：{{ coordinate.player }}</p>
+    <p>ワールド：{{ coordinate.world }}</p>
+  </div>
+
+  <button type="button" class="btn btn-light"><a href="{% url 'craftapp:edit_coordinate' coordinate.pk %}">編集</a></button>
+  
+  <form method="post" action="{% url 'craftapp:delete_coordinate' coordinate.pk %}">{% csrf_token %}
+    <button type="button" class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>削除</button>
+  </form>
+
+  {% endblock %}
