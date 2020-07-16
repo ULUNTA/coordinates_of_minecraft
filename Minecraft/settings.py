@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'jv&-p=5vl30@=(=m_*166=ugkuo150e^*=59f$%oorqh%tvxvp'
 #シークレットキー　jv&-p=5vl30@=(=m_*166=ugkuo150e^*=59f$%oorqh%tvxvp
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', '.pythonanywhere.com']
 
 
 # Application definition
@@ -90,6 +90,7 @@ DATABASES = {
     }
 }
 
+DEBUG = True
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -130,7 +131,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 #ログインページに直接アクセスして、ログインが成功した時だけ、indexにリダイレクトする。
 LOGIN_REDIRECT_URL = '/'
